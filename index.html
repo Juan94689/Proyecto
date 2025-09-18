@@ -3,11 +3,359 @@
 <head>
     <title>Beato Ignacio Casanovas - Vida y Martirio</title>
     <link rel="stylesheet" href="./estilos.css">
+    
+    <style>
+        /* VARIABLES GLOBALES         */
+
+        :root {
+            /* Colores sobrios: azules y grises */
+            --color-primario: #1e40af;
+            --color-secundario: #3b82f6;
+            --color-fondo: #f1f5f9;
+            --color-tarjeta: #ffffff;
+            --color-texto: #1f2937;
+            --color-borde: #e2e8f0;
+        }
+
+        /* SELECTORES BÁSICOS         */
+
+        body {
+            background-color: var(--color-fondo);
+            font-family: 'Merriweather', serif;
+            color: var(--color-texto);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        p {
+            margin-top: 16px;
+        }
+        
+        figure.figura-foto {
+            margin: 0;
+            width: 50%;
+        }
+
+        figcaption {
+            margin-top: 8px;
+            text-align: center;
+            font-style: italic;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        a {
+            color: var(--color-secundario);
+            text-decoration: none;
+        }
+
+        /* CLASES Y IDs               */
+
+        .contenedor-principal {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+        }
+
+        .contenido-principal {
+            flex-grow: 1;
+            padding: 32px;
+            margin-left: 192px;
+        }
+
+        .tarjeta-seccion {
+            background-color: var(--color-tarjeta);
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .titulo-seccion {
+            font-size: 32px;
+            color: var(--color-primario);
+            margin-bottom: 16px;
+        }
+        
+        .titulo-principal {
+            font-size: 32px;
+            color: var(--color-primario);
+            margin-bottom: 8px;
+            margin-left: 16px;
+        }
+
+        .subtitulo-principal {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-secundario);
+            margin-bottom: 16px;
+            margin-left: 16px;
+        }
+
+        .subtitulo-seccion {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-secundario);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .mt-4 {
+            margin-top: 16px;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .elemento-centrado {
+            text-align: center;
+        }
+        
+        .contenedor-banner {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+        
+        .contenedor-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* ESTILOS DEL MENÚ LATERAL        */
+
+        .menu-lateral {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 192px;
+            background-color: var(--color-primario);
+            color: var(--color-tarjeta);
+            padding: 16px;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .encabezado-menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .titulo-menu {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .navegacion-menu {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .lista-navegacion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 24px;
+        }
+
+        .enlace-navegacion {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 16px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .icono {
+            font-size: 18px;
+        }
+
+        .texto-enlace {
+            white-space: nowrap;
+        }
+
+        /* TABLA Y LISTA            */
+
+        .lista-principios {
+            list-style: disc;
+            list-style-position: inside;
+            margin-top: 16px;
+            padding-left: 0;
+        }
+
+        .lista-principios li {
+            margin-top: 8px;
+        }
+
+        .contenedor-tabla {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .encabezado-tabla {
+            background-color: var(--color-primario);
+            color: var(--color-tarjeta);
+        }
+
+        .celda-tabla {
+            padding: 16px;
+            text-align: left;
+            border: 1px solid var(--color-borde);
+        }
+
+        /* GALERÍA DE FOTOS Y ENLACES */
+        
+        .galeria-fotos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            margin-top: 24px;
+        }
+        
+        .galeria-fotos img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .enlaces-fotos {
+            list-style: none;
+            padding: 0;
+        }
+
+        .enlaces-fotos li + li {
+            margin-top: 12px;
+        }
+
+        /* FORMULARIO               */
+
+        .formulario-contacto {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .grupo-formulario {
+            margin-bottom: 8px;
+        }
+
+        .grupo-formulario.expandir-2 {
+            grid-column: span 1;
+        }
+
+        .etiqueta-formulario {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .entrada-formulario {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            outline: none;
+        }
+
+        .boton-enviar {
+            width: 100%;
+            background-color: var(--color-secundario);
+            color: var(--color-tarjeta);
+            padding: 12px 24px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* ESTILOS DE TRIVIA SIMPLIFICADOS      */
+        .trivia-container {
+            padding: 32px;
+            background-color: #f8fafc;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .question {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .choices {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .choice-btn {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--color-borde);
+            background-color: var(--color-tarjeta);
+            color: var(--color-texto);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: none;
+        }
+        
+        .choice-btn.correct-answer {
+            background-color: #10b981;
+            color: white;
+            border-color: #059669;
+        }
+        
+        .choice-btn.incorrect-answer {
+            background-color: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        .feedback {
+            margin-top: 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .score-display {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--color-primario);
+        }
+    </style>
 </head>
 <body>
 
     <div class="contenedor-principal">
         <aside id="sidebar" class="menu-lateral">
+            <div class="encabezado-menu">
+                <h2 class="titulo-menu">Casanovas</h2>
+            </div>
             <nav class="navegacion-menu">
                 <ul class="lista-navegacion">
                     <li>
@@ -26,6 +374,12 @@
                         <a href="#curiosidades" class="enlace-navegacion">
                             <i class="fas fa-lightbulb icono"></i>
                             <span class="texto-enlace">Curiosidades</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#trivia" class="enlace-navegacion">
+                            <i class="fas fa-gamepad icono"></i>
+                            <span class="texto-enlace">Trivia</span>
                         </a>
                     </li>
                     <li>
@@ -103,6 +457,17 @@
                         </table>
                     </div>
                 </section>
+
+                <!-- Sección de Trivia -->
+                <section id="trivia" class="tarjeta-seccion">
+                    <h2 class="titulo-seccion">Trivia: ¿Qué tanto sabes?</h2>
+                    <div id="quiz-container" class="trivia-container">
+                        <p class="question" id="question-text"></p>
+                        <div class="choices" id="choices-container"></div>
+                        <p class="feedback" id="feedback-text"></p>
+                    </div>
+                    <p class="score-display" id="score-display"></p>
+                </section>
                 
                 <section id="fotos-y-enlaces" class="tarjeta-seccion">
                     <h2 class="titulo-seccion">Galería de imágenes</h2>
@@ -152,3 +517,92 @@
             </main>
         </div>
     </div>
+    
+    <script>
+        const questions = [
+            {
+                question: "¿En qué año fue ordenado sacerdote Ignacio Casanovas?",
+                choices: ["1909", "1916", "1936"],
+                answer: "1916"
+            },
+            {
+                question: "¿En qué lugar de Igualada fue fusilado?",
+                choices: ["En su casa", "En La Creueta", "En la Basílica de la Sagrada Familia"],
+                answer: "En La Creueta"
+            },
+            {
+                question: "¿Quién lo beatificó?",
+                choices: ["El Papa Juan Pablo II", "El Papa Pío IX", "La Madre Teresa"],
+                answer: "El Papa Juan Pablo II"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        const quizContainer = document.getElementById('quiz-container');
+        const questionText = document.getElementById('question-text');
+        const choicesContainer = document.getElementById('choices-container');
+        const feedbackText = document.getElementById('feedback-text');
+        const scoreDisplay = document.getElementById('score-display');
+        const quizSection = document.getElementById('trivia');
+
+        function showQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                const q = questions[currentQuestionIndex];
+                questionText.textContent = q.question;
+                choicesContainer.innerHTML = '';
+                q.choices.forEach(choice => {
+                    const button = document.createElement('button');
+                    button.textContent = choice;
+                    button.classList.add('choice-btn');
+                    button.addEventListener('click', () => checkAnswer(choice, q.answer));
+                    choicesContainer.appendChild(button);
+                });
+                feedbackText.textContent = '';
+                scoreDisplay.textContent = '';
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function checkAnswer(selectedChoice, correctAnswer) {
+            const buttons = choicesContainer.querySelectorAll('.choice-btn');
+            let isCorrect = selectedChoice === correctAnswer;
+
+            buttons.forEach(button => {
+                button.disabled = true;
+                if (button.textContent === correctAnswer) {
+                    button.classList.add('correct-answer');
+                }
+                if (button.textContent === selectedChoice && !isCorrect) {
+                    button.classList.add('incorrect-answer');
+                }
+            });
+
+            if (isCorrect) {
+                score++;
+                feedbackText.textContent = '¡Correcto!';
+                feedbackText.style.color = 'green';
+            } else {
+                feedbackText.textContent = 'Incorrecto. La respuesta correcta es: ' + correctAnswer;
+                feedbackText.style.color = 'red';
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                showQuestion();
+            }, 2000);
+        }
+
+        function showFinalScore() {
+            questionText.textContent = 'Trivia Finalizada';
+            choicesContainer.innerHTML = '';
+            feedbackText.textContent = '';
+            scoreDisplay.textContent = `Tu puntaje es: ${score} de ${questions.length}`;
+        }
+        
+        showQuestion();
+    </script>
+
+</body>
+</html>
