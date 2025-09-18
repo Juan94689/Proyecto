@@ -1,0 +1,270 @@
+ /* VARIABLES GLOBALES         */
+
+:root {
+    --color-primario: #1e40af;
+    --color-secundario: #3b82f6;
+    --color-fondo: #f1f5f9;
+    --color-tarjeta: #ffffff;
+    --color-texto: #1f2937;
+    --color-borde: #e2e8f0;
+}
+
+/* SELECTORES BÁSICOS         */
+
+body {
+    background-color: var(--color-fondo);
+    font-family: 'Merriweather', serif;
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+p {
+    margin-top: 16px;
+}
+
+figure.figura-foto {
+    margin: 0;
+    width: 30%;
+}
+
+figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+a {
+    color: var(--color-secundario);
+    text-decoration: none;
+}
+
+/* CLASES Y IDs               */
+
+.contenedor-principal {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.contenido-principal {
+    flex-grow: 1;
+    padding: 32px;
+    margin-left: 192px;
+}
+
+.tarjeta-seccion {
+    background-color: var(--color-tarjeta);
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.titulo-seccion {
+    font-size: 32px;
+    color: var(--color-primario);
+    margin-bottom: 16px;
+}
+
+.titulo-principal {
+    font-size: 32px;
+    color: var(--color-primario);
+    margin-bottom: 8px;
+    margin-left: 16px;
+    text-align: center;
+}
+
+.subtitulo-principal {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-bottom: 16px;
+    margin-left: 16px;
+    text-align: center;
+}
+
+.subtitulo-seccion {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.oculto {
+    display: none;
+}
+
+.elemento-centrado {
+    text-align: center;
+}
+
+
+/* ESTILOS DEL MENÚ LATERAL        */
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background-color: var(--color-primario);
+    color: var(--color-tarjeta);
+    padding: 16px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.titulo-menu {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navegacion-menu {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.lista-navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 24px;
+}
+
+.enlace-navegacion {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.icono {
+    font-size: 18px;
+}
+
+.texto-enlace {
+    white-space: nowrap;
+}
+
+/* TABLA Y LISTA            */
+
+.lista-principios {
+    list-style: disc;
+    list-style-position: inside;
+    margin-top: 16px;
+    padding-left: 0;
+}
+
+.lista-principios li {
+    margin-top: 8px;
+}
+
+.contenedor-tabla {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.encabezado-tabla {
+    background-color: var(--color-primario);
+    color: var(--color-tarjeta);
+}
+
+.celda-tabla {
+    padding: 16px;
+    text-align: left;
+    border: 1px solid var(--color-borde);
+}
+
+/* GALERÍA DE FOTOS Y ENLACES */
+
+.galeria-fotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.galeria-fotos img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.enlaces-fotos {
+    list-style: none;
+    padding: 0;
+}
+
+.enlaces-fotos li + li {
+    margin-top: 12px;
+}
+
+/* FORMULARIO               */
+
+.formulario-contacto {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.grupo-formulario {
+    margin-bottom: 8px;
+}
+
+.grupo-formulario.expandir-2 {
+    grid-column: span 1;
+}
+
+.etiqueta-formulario {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.entrada-formulario {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    outline: none;
+}
+
+.boton-enviar {
+    width: 100%;
+    background-color: var(--color-secundario);
+    color: var(--color-tarjeta);
+    padding: 12px 24px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
